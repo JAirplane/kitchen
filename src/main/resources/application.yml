@@ -1,0 +1,25 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: kitchen
+  profiles:
+    active: jms-listener
+queue:
+  name: tacocloud.order.queue
+---
+spring:
+  config:
+    activate:
+      on-profile: jms-template, jms-listener
+  jms:
+    template:
+      receive-timeout: 2
+  artemis:
+    host: localhost
+    port: 61617
+    user: admin
+    password: password
+    embedded:
+      enabled: false
+debug: true
