@@ -7,11 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import tacos.kitchen.domain.ReceivedOrder;
-import tacos.kitchen.messaging.OrderReceiver;
 
 @RestController
 @RequestMapping(path = "/orders")
-@Profile("jms-template")
+@Profile({"jms-template", "rabbitmq-template"})
 @Slf4j
 public class OrderReceiverController {
 

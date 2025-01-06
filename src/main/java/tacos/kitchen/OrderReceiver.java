@@ -1,4 +1,4 @@
-package tacos.kitchen.messaging;
+package tacos.kitchen;
 
 import tacos.kitchen.domain.ReceivedOrder;
 

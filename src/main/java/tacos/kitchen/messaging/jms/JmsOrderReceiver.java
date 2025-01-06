@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
 import tacos.kitchen.domain.ReceivedOrder;
-import tacos.kitchen.messaging.OrderReceiver;
+import tacos.kitchen.OrderReceiver;
 
 @Component
 @Profile("jms-template")

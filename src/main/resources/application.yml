@@ -4,9 +4,7 @@ spring:
   application:
     name: kitchen
   profiles:
-    active: jms-listener
-queue:
-  name: tacocloud.order.queue
+    active: rabbitmq-listener
 ---
 spring:
   config:
@@ -23,3 +21,16 @@ spring:
     embedded:
       enabled: false
 debug: true
+queue:
+  name: tacocloud.order.queue
+---
+spring:
+  config:
+    on-profile: rabbitmq-template, rabbitmq-listener
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: ja09091990
+queue:
+  name: kitchen.central
