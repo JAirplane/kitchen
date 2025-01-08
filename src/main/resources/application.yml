@@ -4,7 +4,7 @@ spring:
   application:
     name: kitchen
   profiles:
-    active: rabbitmq-listener
+    active: kafka-listener
 ---
 spring:
   config:
@@ -34,3 +34,16 @@ spring:
     password: ja09091990
 queue:
   name: kitchen.central
+
+---
+spring:
+  config:
+   on-profile: kafka-listener
+  kafka:
+    bootstrap-servers:
+      - localhost:9092
+    consumer:
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      group-id: tacocloud_kitchen
+      properties:
+        spring.json.trusted.packages: '*'
